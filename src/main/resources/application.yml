@@ -1,0 +1,36 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        enable_lazy_load_no_trans: 'true'
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+      ddl-auto: update
+    show-sql: 'true'
+  security:
+    filter:
+      order: '10'
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: root
+    username: root
+    url: jdbc:postgres://localhost:3306/
+server:
+  error:
+    include-message: always
+    include-stacktrace: never
+    include-exception: true
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        hibernate: DEBUG
+        jdbc: DEBUG
+        jpa: DEBUG
+        transaction: DEBUG
+        web: DEBUG
+      hibernate:
+        SQL: DEBUG
